@@ -8,9 +8,11 @@
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.MachineName)
-    @Html.TextBoxFor(model => model.MachineName)
+  @Html.LabelFor(model => model.MachineName)
+  @Html.TextBoxFor(model => model.MachineName)
+  <p>@Html.ValidationMessageFor(model => model.MachineName, "",
+  new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
-    <input type="submit" value="Add new machine" class="btn btn-primary" />
+  <input type="submit" value="Add new machine" class="btn btn-primary" />
 }
 <p>@Html.ActionLink("Show all the machines", "Index")</p>
