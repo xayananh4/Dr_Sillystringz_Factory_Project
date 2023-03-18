@@ -10,7 +10,8 @@
 {
     @Html.LabelFor(model => model.EngineerName)
     @Html.TextBoxFor(model => model.EngineerName)
-    <p>@Html.ValidationMessageFor(model => model.EngineerName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+<p>@Html.ValidationMessageFor(model => model.EngineerName, "", 
+  new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
 
 

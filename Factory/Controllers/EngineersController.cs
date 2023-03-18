@@ -34,10 +34,20 @@ namespace Factory.Controllers
 
     [HttpPost]
     public ActionResult Create(Engineer engineer)
+
     {
-      _db.Engineers.Add(engineer);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      if (!ModelState.IsValid)
+      {
+        ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
+        return View(engineer);
+      }
+      else
+      {
+        _db.Engineers.Add(engineer);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+      }
+
     }
 
     public ActionResult AddMachine(int id)
@@ -50,9 +60,9 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult AddMachine(Engineer engineer, int machineId)
     {
-      #nullable enable
+#nullable enable
       EngineerMachine? joinEntity = _db.EngineerMachines.FirstOrDefault(join => (join.MachineId == machineId && join.EngineerId == engineer.EngineerId));
-      #nullable disable
+#nullable disable
       if (joinEntity == null && machineId != 0)
       {
         _db.EngineerMachines.Add(new EngineerMachine() { MachineId = machineId, EngineerId = engineer.EngineerId });
