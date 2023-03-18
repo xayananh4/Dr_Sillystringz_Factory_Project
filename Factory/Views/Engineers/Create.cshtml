@@ -8,9 +8,10 @@
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.EngineerName)
-    @Html.TextBoxFor(model => model.EngineerName)
+  @* @Html.LabelFor(model => model.EngineerName)
+@Html.TextBoxFor(model => model.EngineerName) *@
+  <td>@Html.TextBoxFor(model =>(model.EngineerName), new { @Value =@model.EngineerName, @required = "required"})</td>
 
-    <input type="submit" value="Add a new engineer" class="btn btn-primary" />
+  <input type="submit" value="Add a new engineer" class="btn btn-primary" />
 }
 <p>@Html.ActionLink("Show all the engineers", "Index")</p>
