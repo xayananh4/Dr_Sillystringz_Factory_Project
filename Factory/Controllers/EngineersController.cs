@@ -53,12 +53,12 @@ namespace Factory.Controllers
       #nullable enable
       EngineerMachine? joinEntity = _db.EngineerMachines.FirstOrDefault(join => (join.MachineId == machineId && join.EngineerId == engineer.EngineerId));
       #nullable disable
-      if (joinEntity == null && courseId != 0)
+      if (joinEntity == null && machineId != 0)
       {
-        _db.EngineerCourses.Add(new EngineerCourse() { CourseId = courseId, EngineerId = Engineer.EngineerId });
+        _db.EngineerMachines.Add(new EngineerMachine() { MachineId = machineId, EngineerId = engineer.EngineerId });
         _db.SaveChanges();
       }
-      return RedirectToAction("Details", new { id = Engineer.EngineerId });
+      return RedirectToAction("Details", new { id = engineer.EngineerId });
     }
 
   }
