@@ -29,6 +29,19 @@ namespace Factory.Controllers
       return View(thisEngineer);
     }
 
+    public ActionResult Create()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Tag tag)
+    {
+      _db.Tags.Add(tag);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
 
 
   }
