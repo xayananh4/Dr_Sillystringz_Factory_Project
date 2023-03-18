@@ -15,7 +15,6 @@ namespace Factory.Controllers
     {
       _db = db;
     }
-
     public ActionResult Index()
     {
       return View(_db.Engineers.ToList());
@@ -28,21 +27,39 @@ namespace Factory.Controllers
           .FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
-
     public ActionResult Create()
     {
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Tag tag)
+    public ActionResult Create(Engineer engineer)
     {
-      _db.Tags.Add(tag);
+      _db.Engineers.Add(engineer);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
+    public ActionResult AddMachine(int id)
+    {
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
+      return View(thisEngineer);
+    }
 
+    [HttpPost]
+    public ActionResult AddMachine(Engineer engineer, int machineId)
+    {
+      #nullable enable
+      EngineerMachine? joinEntity = _db.EngineerMachines.FirstOrDefault(join => (join.MachineId == machineId && join.EngineerId == engineer.EngineerId));
+      #nullable disable
+      if (joinEntity == null && courseId != 0)
+      {
+        _db.EngineerCourses.Add(new EngineerCourse() { CourseId = courseId, EngineerId = Engineer.EngineerId });
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Details", new { id = Engineer.EngineerId });
+    }
 
   }
 }

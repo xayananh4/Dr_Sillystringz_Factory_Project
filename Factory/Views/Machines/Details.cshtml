@@ -16,9 +16,9 @@
 }
 else
 {
-  <h4>This machine has the following engineers:</h4>
+  <h4>This machine has the following engineers associated with it:</h4>
   <ul>
-    @foreach(MachineEngineer join in Model.JoinEntities)
+    @foreach(EngineerMachine join in Model.JoinEntities)
     {
       <li>Engineer: @join.Engineer.EngineerName</li>
     }
