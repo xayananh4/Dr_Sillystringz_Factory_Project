@@ -8,9 +8,13 @@
 
 @using (Html.BeginForm())
 {
-  @* @Html.LabelFor(model => model.EngineerName)
-@Html.TextBoxFor(model => model.EngineerName) *@
-  <td>@Html.TextBoxFor(model =>(model.EngineerName), new { @Value =@model.EngineerName, @required = "required"})</td>
+    @Html.LabelFor(model => model.EngineerName)
+    @Html.TextBoxFor(model => model.EngineerName)
+    <p>@Html.ValidationMessageFor(model => model.EngineerName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+
+
+
 
   <input type="submit" value="Add a new engineer" class="btn btn-primary" />
 }

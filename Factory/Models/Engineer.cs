@@ -8,6 +8,9 @@ namespace Factory.Models
   {
     public int EngineerId { get; set; }
    
+    
+    
+    [Required(ErrorMessage = "The item's description can't be empty!")]
     public string EngineerName { get; set; }
 
     [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:M/d/yyyy}")]
