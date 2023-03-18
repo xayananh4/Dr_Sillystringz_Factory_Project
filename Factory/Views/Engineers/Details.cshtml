@@ -9,7 +9,7 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.EngineerName): @Html.DisplayFor(model => model.EngineerName)</h3>
 
-@if(@Model.JoinEntities.Count == 0)
+@if (@Model.JoinEntities.Count == 0)
 {
   <p>This engineer does not have any machines.</p>
 }
@@ -17,12 +17,18 @@ else
 {
   <h4>Machines this engineer works on:</h4>
   <ul>
-  @foreach(EngineerMachine join in Model.JoinEntities)
-  {
-    <li>@join.Machine.MachineName</li>
-  }
+  @foreach (EngineerMachine join in Model.JoinEntities)
+    {
+      <li>@join.Machine.MachineName</li>
+      @using (Html.BeginForm("DeleteJoin", "Engineers"))
+      {
+        @Html.Hidden("joinId", @join.EngineerMachineId)
+        <input type="submit" value="Delete This Machine" />
+      }
+    }
   </ul>
 }
-<p>@Html.ActionLink("add a machine to this engineer", "AddMachine", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Add a machine to this engineer", "AddMachine", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Edit this engineer", "Edit", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Delete This Engineer", "Delete", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Back to list of engineers", "Index")</p>

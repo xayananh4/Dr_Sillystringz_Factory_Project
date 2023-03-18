@@ -2,20 +2,20 @@
   Layout = "_Layout";
 }
 
-@model Factory.Models.Engineer
+@model Factory.Models.Machine
 
 <h2>Edit</h2>
 
-<h4>Edit this Engineer: @Html.DisplayFor(model => model.EngineerName)</h4>
+<h4>Edit this machine: @Html.DisplayFor(model => model.MachineName)</h4>
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.EngineerId)
+    @Html.HiddenFor(model => model.MachineId)
 
-    @Html.LabelFor(model => model.EngineerName)
-    @Html.EditorFor(model => model.EngineerName)
+    @Html.LabelFor(model => model.MachineName)
+    @Html.EditorFor(model => model.MachineName)
 
     <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Back to list of machines", "Index")</p>
