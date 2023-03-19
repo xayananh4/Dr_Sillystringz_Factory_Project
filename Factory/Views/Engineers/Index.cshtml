@@ -16,5 +16,7 @@
   <li>@Html.ActionLink($"{element.EngineerName}", "Details", new { id = element.EngineerId })</li>
 }
 
-<p>@Html.ActionLink("Add a new engineer", "Create")</p>
+@* <p>@Html.ActionLink("Add a new engineer", "Create")</p> *@
+
+<input type="button" value="Add new engineer" onclick="location.href='@Url.Action("Create", "Engineers")'" />
 

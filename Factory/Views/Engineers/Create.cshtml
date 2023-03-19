@@ -8,14 +8,12 @@
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.EngineerName)
-    @Html.TextBoxFor(model => model.EngineerName)
-<p>@Html.ValidationMessageFor(model => model.EngineerName, "", 
+  @Html.LabelFor(model => model.EngineerName)
+  @Html.TextBoxFor(model => model.EngineerName)
+  <p>@Html.ValidationMessageFor(model => model.EngineerName, "",
   new { @class = "text-danger", @style = "font-weight: 600;" })</p>
-
-
-
-
+  @Html.LabelFor(model => model.HireDate)
+  @Html.TextBoxFor(model => model.HireDate, "{0:M/d/yyyy}",  new { @id="datepicker" })
 
   <input type="submit" value="Add a new engineer" class="btn btn-primary" />
 }
