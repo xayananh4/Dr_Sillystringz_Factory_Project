@@ -1,17 +1,38 @@
-## What Is This?
+# Dr. Sillystringz's Factory
+Names of contributors: By Viradeth Xay-ananh.  
+MVC web application for Dr. Sillystringz's Factory.
 
-This is a finished example repo corresponding to the LearnHowToProgram.com walkthrough on creating a very simple web app with ASP.NET Core MVC and C#. The first lesson of this walkthrough is [Constructing and Configuring an ASP.NET Core Project](https://www.learnhowtoprogram.com/c-and-net/basic-web-applications/constructing-and-configuring-an-asp-net-core-project).
+# Description 
+MVC Web application that allows a manager to add a engineer to a list and view all the list of engineers.  The manager can also add a machine to a list and view of list of machines.  The manager can also add a machine to a engineer and vice versa (engineer to a machine)
 
-## How To Run This Project
+## Technologies Used
+* C#
+* Dot Net 6.0
+* Markup
+* Git
+* ASP.NET MVC
+* css
+* Html5
+* Microsoft EntityFramework Core
 
-1. Clone this repo.
-2. Open your shell (e.g., Terminal or GitBash) and navigate to this project's production directory called "FriendLetter". 
-3. Run `dotnet run`.
-4. Open the browser to _http://localhost:5000_.
+# Complete setup/Installation instructions:
+* Clone repository to your desktop 
+* CD to the Directory: Factory
+* While in the current directory [Factory]  
+* Create appsettings.json file ![example for appsettings file](image.png)
+* Replace the following values shown in image with: 
+* [YOUR-DB-NAME]: database included in project
+* [YOUR-USER-HERE]: with your username
+* [YOUR-PASSWORD-HERE]: with your password
+* Enter in command: 'dotnet ef database update'
+* Add the appsettings.json file to .gitignore to protect the sensitive data
+* To view web application. Run commands: dotnet watch run 
+* Open the browser, go to https://localhost:5001
 
-## Available Routes
+# Known bugs: 
+No bugs 
 
-* localhost:5000/
-* localhost:5000/hello
-* localhost:5000/goodbye
-* localhost:5000/form
+## License
+
+[MIT](https://opensource.org/licenses/MIT)  
+Copyright (c) _03/17/2023_ _viradeth xay-ananh_
